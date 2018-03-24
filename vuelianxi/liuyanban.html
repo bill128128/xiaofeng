@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="container" id="box">
+			<form role=="form">
+				<div class="form-group">
+					<label for="username">用户名：</label>
+					<input type="text" id="username" class="form-control" placeholder="输入用户名" value="" v-model="username"/>
+				</div>
+				<div class="form-group">
+					<label for="age">年  龄：</label>
+					<input type="text"id="age" class="form-control" placeholder="输入年龄" value="" v-model="age" />
+				</div>
+				<div class="form-group">
+					<button @click="add()" class="btn btn-primary" value="添加">添加</button>
+					<button class="btn btn-danger" value="重置">重置</button>
+				</div>
+				
+				
+				
+			</form>
+			<hr />
+			<div class="table-responsive">
+					<table class="table table-bordered table-hover">
+						<caption class="h2 text-info">用户信息表</caption>
+						<thead class="text-danger">
+							<th class="text-center">序号</th>
+							<th class="text-center">姓名</th>
+							<th class="text-center">年龄</th>
+							<th class="text-center">操作</th>
+						</thead>
+						<tr v-for="(item,index) in myData">
+							<td>{{index+1}}</td>
+							<td>{{item.username}}</td>
+							<td>{{item.age}}</td>
+							<td><button class="btn btn-primary btn-small" data-toggle="modal" data-target="#layer">删除</button></td>
+						</tr>
+						
+						<tr v-show="myData.length!=0">
+						<td colspan="4">
+							<button class="btn btn-danger btn-small">删除全部</button>
+						</td>
+						</tr>
+						<tr v-show="myData.length==0"><td colspan="4" class="text-center text-success">
+							<p>暂无数据</p>
+						</td></tr>
+					</table>
+				</div>
+				<!--
+                	作者：offline
+                	时间：2018-03-22
+                	描述：模态框
+                -->
+                <div role="dialog" class="modal fade" id="layer">
+                	<div class="modal-dialog">
+                		<div class="modal-content">
+                			<div class="modal-header">
+                				<button class="close" data-dismiss="modal">&times;</button>
+                				<h4 class="modal-title">确认删除吗？</h4>
+                			</div>
+                			<div class="modal-body text-right">
+                				<button data-dismiss="modal" class="btn btn-danger btn-small">取消</button>
+                				<button data-dismiss="modal" class="btn btn-primary btn-small">确认</button>
+                			</div>
+                			<div class="modal-footer"></div>
+                		</div>
+                	</div>
+                </div>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script>
+			var vm = new Vue({
+				el: "#box",
+				data: {
+					myData:[
+					{username: 'aa',age: '20'}
+					]
+				},
+				methods: {
+					add(){
+						this.myData.push({
+							username:this.username,
+							age: this.age
+						});
+						
+					}
+				}
+			})
+			
+			
+			$('.a')
+		</script>
+	</body>
+</html>

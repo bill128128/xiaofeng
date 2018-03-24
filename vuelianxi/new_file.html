@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="a">
+			<p>厂商类型:</p>
+			<div class="b">
+				<input type="checkbox" value="ddd" name="aaa" id="aaa" />ddd
+				<input type="checkbox" value="bbb" name="aaa" id="aaa" />bbb
+				<input type="checkbox" value="ccc" name="aaa" id="aaa" />ccc
+			</div>
+		</div>
+		<div class="a">
+			<p>厂商名称:</p>
+			<div class="b">
+				<input type="checkbox" value="aaa" name="aaa" id="aaa" />aaa
+				<input type="checkbox" value="bbb" name="aaa" id="aaa" />bbb
+				<input type="checkbox" value="ccc" name="aaa" id="aaa" />ccc
+			</div>
+		</div>
+		
+		<div class="a">
+			<p>厂商类型:</p>
+			<div class="b">
+				<input type="checkbox" value="ddd" name="aaa" id="aaa" />ddd
+				<input type="checkbox" value="bbb" name="aaa" id="aaa" />bbb
+				<input type="checkbox" value="ccc" name="aaa" id="aaa" />ccc
+			</div>
+		</div>
+		
+		<div class="a">
+			<p>表情类型:</p>
+			<div class="b">
+				<input type="checkbox" value="fff" name="aaa" id="aaa"  checked="checked"/>fff
+				<input type="checkbox" value="bbb" name="aaa" id="aaa" />bbb
+				<input type="checkbox" value="ccc" name="aaa" id="aaa" />ccc
+			</div>
+		</div>
+		
+		<script>
+			$(document).ready(function(){
+//				$('.a').each( function(){
+//					
+//				});
+				$('.a').each(function(){
+					if($(this).find('div').find("input").is(':checked')){
+						
+					}else{
+						alert($(this).find("p").text());
+					}
+				})
+				//as = $('.a');
+				
+				//as.children().children().is(':checked');
+				
+				//alert($("input[type='checkbox']").is(':checked'));
+				//alert($('.a').children().children().is(':checked'));
+			});
+			
+		</script>
+	</body>
+</html>
